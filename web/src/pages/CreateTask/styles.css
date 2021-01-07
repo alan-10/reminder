@@ -1,0 +1,94 @@
+#create-task {
+  width: 100vw;
+  height: 100vh;
+
+  padding: 0  2rem;
+
+  background-color:var(--color-page-background) ;
+  overflow: hidden;
+}
+
+#form-create-task .input-block input{
+  width: 100%;
+  height: 5rem;
+  margin-top: 0.8rem;
+  border-radius: 0.8rem;
+  border: 1px solid var(--color-line-in-white);
+  outline: 0;
+  padding: 1.8rem;
+}
+#form-create-task .input-block + .input-block {
+  margin-top: 1.2rem;
+}
+
+
+#form-create-task .textarea-block {
+  margin-top: 1rem;
+}
+
+#form-create-task .textarea-block textarea {
+  width: 100%;
+  height:9rem;
+  margin-top: 1.5rem;
+  border-radius: 0.8rem;
+  border: 1px solid var(--color-line-in-white);
+  outline: 0;
+  padding: 1rem 1.5rem;
+}
+
+#form-create-task > button {
+  width: 100%;
+  height: 6rem;
+  margin-top: 4rem;
+  border-radius: 0.8rem;
+  color: black;
+  background-color: var(--color-button-background);
+  border: 0 ;
+  transition: background-color 0.2s;
+  transition: color 0.2s;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+}
+
+#form-create-task > button:hover {
+  background-color:var(--color-button-background-hover);
+
+}
+
+
+
+@media(min-width: 700px){
+  #create-task {
+    max-width: 100%;
+    max-height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+  }
+
+
+  #form-create-task{
+    width: 650px;
+    display: block;
+    align-self: center;
+    background-color: rgb(128,128,128);
+    padding: 2rem;
+    border-radius: 1rem;
+  }
+
+  #dates{
+    display: flex;
+    align-items: center;
+    justify-content: start;
+  }
+
+  #form-create-task .input-block + .input-block {
+    margin-top: 0;
+    margin-left: 1rem;
+  }
+}

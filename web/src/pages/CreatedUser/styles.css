@@ -1,0 +1,49 @@
+#user-is-create {
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: var(--color-page-background); 
+  position: relative;
+}
+
+#is-create {
+
+  position: absolute;
+  background: red;
+  padding: 2rem;
+  width: 90vw;
+  border-radius: 2rem;
+  background: #148F77 ;
+
+  
+  max-width: 650px;
+  
+}
+
+.message-create {
+  padding-bottom: 2rem;
+  padding-bottom: 2rem;
+}
+
+#button-to-landing {
+  height: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 2rem;
+  margin-top: 3rem;
+  background-color: var(--color-button-background);
+  color: white;
+  cursor: pointer;
+  
+}
+
+#button-to-landing a {
+  color:white;
+  text-decoration: none;
+  font-size: 2rem;
+}

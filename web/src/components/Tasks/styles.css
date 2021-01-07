@@ -1,0 +1,93 @@
+.content-task {
+  background:#cecfd1cb ;
+  padding: 1rem;
+  max-width: 95%;
+  border-radius: 0.8rem;
+  margin-top: 2.6rem;
+  position: relative;
+
+  box-shadow: rgba(0, 0, 0, 0.63) 1px 2px;
+  box-sizing: border-box;
+  
+}
+
+.content-task > p {
+  margin-bottom: 1.5rem;
+  word-break: break-all;
+}
+
+#content-task > a {
+  position: absolute;
+  
+  right: 4px;
+  bottom: 5px;
+  border-radius: 0.8rem;
+  color:red;
+  
+ 
+}
+
+
+/*CHECK BOX NA MÃO*/
+ #checked {
+  position: absolute;
+  right: 0.5rem;
+  top: 0.5rem;
+
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0 0.8rem 0 0.5rem;
+
+  background: white; 
+  border: 1px  solid rgb(158, 149, 149) ;
+  cursor: pointer;
+
+  transition: background 0.2s;
+}
+
+label  input[type="checkbox"] {
+  display: none;
+}
+
+label input[type="checkbox"]:checked ~ #checked {
+  background:#09e276;
+}
+
+label #checked::after{
+  top: 0.5rem;
+  left: 1rem;
+  width:0.5rem;
+  height: 1rem;
+  border: solid black;
+  border-width: 0 3px 3px 0 ;
+
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+#checked::after {
+  content: '';
+  position: absolute;
+  display: none;
+}
+
+label input[type="checkbox"]:checked ~ #checked::after {
+  display: block;
+}
+
+@media(min-width: 850px){
+  
+  #content-task p {
+    margin-left: 2rem;
+    margin-right: 1rem;
+    
+   text-align: unset;
+  
+  }
+
+  
+  
+}
+
+

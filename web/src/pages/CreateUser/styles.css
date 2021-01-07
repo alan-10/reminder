@@ -1,0 +1,128 @@
+#page-create-user {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--color-page-background);
+    overflow: auto;
+}
+
+
+
+
+
+.form-create-user {
+    margin-top: 5rem;
+}
+
+#form-create-user-content .input-block + .input-block{
+   margin-top: 1.3rem;
+}
+
+#form-create-user-content .input-block {
+    position: relative;
+}
+
+#form-create-user-content .input-block label {
+    font-size: 1.4rem;
+}
+
+#form-create-user-content .input-block  input {
+   width: 100%; 
+   height: 5rem;
+   margin-top: 0.4rem;
+   border-radius: 0.8rem;
+   border: 0 solid var(--color-line-in-white);
+   outline: 0;
+   padding: 1.6rem;
+}
+
+.submit-button {
+    color: var(--color-button-background) ;
+    margin-bottom: 2rem;
+    margin-top: 3rem;
+}
+
+.submit-button button {
+    width: 100%;
+    height: 5rem;
+    border-radius: 0.8rem;
+    border: 0;
+    outline: 0;
+    background-color: var(--color-button-background);
+    color: white;
+    cursor: pointer;
+}
+
+.submit-button button:hover {
+    background-color: var(--color-button-background-hover);
+}
+
+
+.text-create-user {
+   font: 600 2rem Poppins; 
+   max-width: 400px;
+}
+
+ #form-create-user-content .input-block:focus-within::after{
+    width: calc(100% - 3.2rem);
+    height: 2px;
+    content: '';
+    background-color:black;
+    position: absolute;
+    left: 1.6rem;
+    right: 1.6rem;
+    bottom: 0;
+}
+
+
+.user-create-content {
+    background-color:var(--color-page-background-in-more);
+    padding: 2rem;
+    margin-bottom: 3rem;
+    border-radius: 0.8rem;
+}
+
+
+@media(min-width:1100px) {
+    #page-create-user-content {
+      max-width: 90%; 
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-self: center;
+    }
+
+    #page-create-user-content > .user-create-content {
+        align-items: center;
+    }
+
+    .form-create-user{
+       
+        align-items: center;
+        justify-content: center;
+        
+
+        display: flex;
+        justify-content: flex-end;
+        max-width: 700px;
+        margin: auto;
+    }
+
+    #form-create-user-content{
+      max-width: 100%;
+      width: 400px;
+     
+    }
+
+    .user-create-content{
+       width: 40%;
+       
+       display: grid;
+        align-self: center;
+        
+        
+    }
+     
+}

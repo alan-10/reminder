@@ -1,0 +1,91 @@
+#seach-page {
+  height: 100%;
+  width: 100vw;
+  background: var(--color-page-background);
+  padding: 0 2rem;
+  overflow:auto;
+}
+
+
+div .header {
+  margin-top: 2.2rem;
+
+  
+}
+
+.header input[type="date"] {
+  width: 100%;
+  height: 5rem;
+  border-radius: 0.8rem;
+  outline: 0;
+  border: 1px solid var(--color-line-in-white);
+  padding: 1.8rem;
+}
+
+.header button {
+  width: 100%;
+  height: 4rem;
+
+  margin-top: 1rem;
+  background: var(--color-button-background) ;
+  border: 0;
+  border-radius: 0.8rem;
+  cursor: pointer;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  transition: background 0.2s;
+}
+
+.header button:hover {
+  background: var(--color-button-background-hover);
+}
+
+
+#tasks {
+
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+#tasks > div {
+  flex: 1 1 200px;
+  margin:10px;
+  max-width: 50%;
+  justify-content: center;
+}
+
+
+@media(min-width: 700px) {
+  #seach-page {
+    max-width: 100%;
+  }
+
+  div .header {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 700px;
+
+    margin: 0 auto;
+
+  }
+
+  #buttonSeach {
+    width: 11rem;
+    margin-top: 0;
+    margin-left: 1rem;
+  }
+
+  #dateSeach { 
+    width: 40%;
+  }
+
+
+}

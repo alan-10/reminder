@@ -1,0 +1,29 @@
+.page-header .top-bar-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+    margin: 5rem 0;
+    margin-bottom: 2rem;
+    
+}
+
+.page-header .top-bar-container a {
+    transition: opacity 0.2s;
+}
+
+.page-header .top-bar-container a:hover {
+    opacity: 0.6;
+}
+
+.title-header {
+    font: 25 2rem Bangers;
+    
+}
+
+
+@media(min-width:700px){
+    .title-header {
+        display: none;
+    }
+    }
