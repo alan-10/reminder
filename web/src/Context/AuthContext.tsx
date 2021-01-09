@@ -2,14 +2,17 @@ import React, { createContext, useContext, useState, useEffect } from 'react';
 import api from '../services/api';
 
 interface AddValueFunc {
-  (value: boolean):void;
+  (value: boolean): void;
 }
 
-interface addValueFunString  {
-  (value: string): void;
+interface AddValueFuncIntegert {
+  (value: number): void;
 }
 
- 
+interface IFSimple {
+  ():void
+}
+
 interface AuthcontextData {
   authenticated: boolean;
   addStatusAuthenticated: AddValueFunc;
@@ -17,12 +20,15 @@ interface AuthcontextData {
   loading: boolean;
   taskChangUpdate: AddValueFunc;
   taskChanged: boolean;
-  
+  isModalVisible: boolean;
+  updateIsModalVisible: AddValueFunc;
+  deleteTask: AddValueFuncIntegert;
+  ModalconfirmationDelete:IFSimple
 }
 
 interface AuxProps {
   children: React.ReactNode;
-  
+
 }
 
 
@@ -35,41 +41,70 @@ const AuthProvider = (props: AuxProps) => {
   const [authenticated, setAuthenticated] = useState(false);
   const [loading, setLoading] = useState(true);
   const [taskChanged, setTaskChanged] = useState(false);
+  const [taskId, setTaskId] = useState(Number);
+  
+  
+
+  const [isModalVisible, setIsModalVisible] = useState(false)
 
   useEffect(() => {
     const token = localStorage.getItem('token');
 
-    if(token){
+    if (token) {
       api.defaults.headers.Authorization = `Bearer ${JSON.parse(token)}`;
       addStatusAuthenticated(true);
     }
 
     whilleLoading(false);
-    
+
   }, []);
 
-  const addStatusAuthenticated = function(value: boolean){
+  const addStatusAuthenticated = function (value: boolean) {
     setAuthenticated(value);
   }
 
-  const whilleLoading = function(value: boolean){
+  const whilleLoading = function (value: boolean) {
     setLoading(value);
   }
 
-  const taskChangUpdate = async function(value: boolean){
-       setTaskChanged(value);
+  const taskChangUpdate = async function (value: boolean) {
+    setTaskChanged(value);
   }
-   
+
+  const deleteTask = async function (id: number) {
+    setTaskId(id);
+    setIsModalVisible(true);
+    
+
+  }
+
+  const updateIsModalVisible = function (value: boolean) {
+    setIsModalVisible((preveValue)=> value);
+  }
+
+
+  const ModalconfirmationDelete = async function(){
+    setTaskChanged(true);
+    await api.delete(`/task/${taskId}`);
+    
+    setIsModalVisible(false);
+    setTaskChanged(false);
+  }
+
   return (
     <AuthContext.Provider value={{
       authenticated,
-      addStatusAuthenticated, 
-      whilleLoading,      
+      addStatusAuthenticated,
+      whilleLoading,
       loading,
       taskChangUpdate,
       taskChanged,
+      isModalVisible,
+      updateIsModalVisible,
+      deleteTask,
+      ModalconfirmationDelete
     }
-  }
+    }
     >
       {props.children}
     </AuthContext.Provider>

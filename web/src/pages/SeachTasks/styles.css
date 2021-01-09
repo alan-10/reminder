@@ -55,7 +55,6 @@ div .header {
 #tasks > div {
   flex: 1 1 200px;
   margin:10px;
-  max-width: 50%;
   justify-content: center;
 }
 

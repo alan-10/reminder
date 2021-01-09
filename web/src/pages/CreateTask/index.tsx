@@ -16,8 +16,6 @@ toast.configure();
 const CreateTask: React.FC = () => {
 
    const dateNow = new Date().toLocaleDateString();
- 
-  
   
 
   const history = useHistory();
@@ -26,9 +24,7 @@ const CreateTask: React.FC = () => {
   const [hourTask, setHourTask] = useState('');
   const [description, setDescription] = useState('')
   
-  //const hourInMinutes = converterHourInMinutes(hourTask);
 
-  //console.log(hourInMinutes);
 
   const  erroToShedule = () => {
     toast.error('Horário já utilizado.', {

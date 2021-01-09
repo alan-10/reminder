@@ -14,7 +14,7 @@ import api from '../../services/api';
 import converterDates from '../../utils/converterDates';
 
 import Tasks, { Task } from '../../components/Tasks';
-
+import Modal from '../../components/Modal';
 import NotTasks from '../../components/NotTasks';
 
 
@@ -27,11 +27,15 @@ import "./styles.css";
 function PageMain() {
 
   const history = useHistory();
-  const { addStatusAuthenticated, taskChanged } = useContext(AuthContext);
-  
+  const {
+    addStatusAuthenticated,
+    taskChanged,
+    isModalVisible
+  } = useContext(AuthContext);
+
 
   const [task, setTask] = useState([]);
-  
+
 
   //sair da aplicação
   function handleLogout() {
@@ -51,11 +55,11 @@ function PageMain() {
       const data = results.data;
       setTask(data);
     })
-    .catch(() => setTask([]));
+      .catch(() => setTask([]));
 
   }, [taskChanged]);
 
-  if(taskChanged == true){
+  if (taskChanged == true) {
     return <BeatLoader />
   }
 
@@ -76,7 +80,7 @@ function PageMain() {
         <div id="header-two" className="header-two">
 
           <div>{dateNow}</div>
-          <Link to="/create-task"> <strong>+Nova tarefa</strong></Link>
+          <Link to="/create-task"> <strong>+Novo lembrete</strong></Link>
         </div>
 
 
@@ -84,9 +88,9 @@ function PageMain() {
 
         <div id="tasks">
 
-          {(task.length ===  0 || task[0] === undefined )?(
+          {(task.length === 0 || task[0] === undefined) ? (
             < NotTasks />
-            ) 
+          )
             :
             (task.map((taskItem: Task) => {
               return (
@@ -98,6 +102,7 @@ function PageMain() {
 
         </div>
       </div>
+      {isModalVisible ? <Modal /> : null}
     </div>
   )
 }

@@ -5,6 +5,7 @@ import { BeatLoader } from 'react-spinners';
 import Header from '../../components/PageHeader'
 import Tasks, { Task } from '../../components/Tasks';
 import NotTasks from '../../components/NotTasks';
+import Modal from '../../components/Modal';
 import api from '../../services/api';
 
 import './styles.css';
@@ -12,7 +13,7 @@ import './styles.css';
 
 const SeachTask: React.FC = () => {
 
-  const { taskChanged ,taskChangUpdate } = useContext(AuthContext);
+  const { taskChanged ,taskChangUpdate , isModalVisible} = useContext(AuthContext);
 
   const [dateTask, setDateTask] = useState('');
   const [task, setTask] = useState([]);
@@ -40,20 +41,7 @@ const SeachTask: React.FC = () => {
  }, [yarTask,taskChanged,dateTask ]);
 
 
-  
-  // function handleListTasks (e: FormEvent){
-  //   e.preventDefault();
-
-  //   if(dateTask === ''){
-  //     return console.log('erro data incvalida')
-  //   }
-
-  //   api.post(`/task-index?yarTask=${dateTask}`).then(result => {   
-  //     setTask(result.data);
-  //   })
-    
-
-  // }
+ 
 
   if(taskChanged == true){
     return <BeatLoader />
@@ -71,9 +59,7 @@ const SeachTask: React.FC = () => {
             value={dateTask}
             onChange={e => setDateTask(e.target.value)}
           />
-          {/* <button onClick={changeClick} id="buttonSeach">
-            <strong>Pesquisar</strong>
-          </button> */}
+        
           
       </div>
 
@@ -90,7 +76,7 @@ const SeachTask: React.FC = () => {
             )
           }
       </div>
-      
+      {isModalVisible ? <Modal /> : null}
     </div>
 
   );
