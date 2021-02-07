@@ -1,0 +1,83 @@
+#forgot-password {
+  width: 100vw;
+  height: 100vh;
+  background: var(--color-page-background);
+
+  overflow: hidden;
+  padding: 0 2rem 0 2rem;
+  
+  display: flex;
+  flex-direction: column;
+}
+
+
+.forgot-content {
+  background-color:var(--color-page-background-in-more);
+  border-radius: 0.8rem;
+  padding: 2rem;
+}
+
+/* #form-forgot .input-block {
+  position:relative;
+} */
+
+#form-forgot .input-block input{
+  width: 100%;  
+  height: 5rem;
+  border: 0 solid var(--color-line-in-white);
+  border-radius: 0.8rem;
+  outline: none;
+  padding: 1.6rem;
+  margin-top: 1.5rem;
+}
+
+
+/* #form-forgot .input-block:focus-within::after{
+  width: calc(100% - 3.2rem);
+    height: 2px;
+    content: '';
+    background-color:black;
+    position: absolute;
+    left: 1.6rem;
+    right: 1.6rem;
+    bottom: 0;
+} */
+
+
+
+
+.forgot-content button {
+  height: 4.5rem;
+  width: 100%;
+  background: var(--color-button-background) ;
+  margin-top: 2.5rem;
+  border-radius: 0.8rem;
+  outline:none;
+  color:white;
+  border: 0;
+  cursor:pointer;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.forgot-content button:hover {
+  background-color: var(--color-button-background-hover);
+}
+
+
+
+@media(min-width: 700px) {
+  #forgot-password{
+    max-width: 100%;
+  }
+
+  .forgot-content{
+    
+    width: 35%;
+    
+    align-self: center;
+    align-content: center;
+  }
+}

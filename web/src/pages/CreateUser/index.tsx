@@ -64,7 +64,7 @@ function CreateUser() {
 
                     <h2 className="text-create-user">
                         Cadastre-se e honre seus compromissos de forma divertida!
-                </h2>
+                    </h2>
 
                     <div className="form-create-user">
                         <form onSubmit={handleCreateUser} id="form-create-user-content">

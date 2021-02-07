@@ -1,6 +1,7 @@
 #page-main {
   height: 100vh;
   width: 100vw;
+
 }
 
 #header-main{
@@ -88,17 +89,12 @@
   }
 
   #tasks {
-
+   
     display: flex;
     flex-wrap: wrap;
     max-width: 1000px;
     margin: 0 auto;
   }
 
-  #tasks > div {
-    flex: 1 1 200px;
-    margin:10px;
-    justify-content: center;
-    /* max-width: 50%; */
-  }
+ 
 }

@@ -76,7 +76,12 @@ label input[type="checkbox"]:checked ~ #checked::after {
   display: block;
 }
 
-@media(min-width: 850px){
+@media(min-width: 700px){
+
+  #content-task{
+    max-width: 23%;
+    
+  }
   
   #content-task p {
     margin-left: 2rem;

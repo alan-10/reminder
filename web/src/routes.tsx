@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { BrowserRouter, Route , Redirect} from 'react-router-dom';
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 
 import { AuthContext } from './Context/AuthContext';
 
@@ -10,28 +10,33 @@ import PageMain from './pages/PageMain';
 import CreatedUser from './pages/CreatedUser';
 import CreateTask from './pages/CreateTask';
 import SeachTasks from './pages/SeachTasks';
-
+import ResetPassword from './pages/ResetPassword';
 import { BarLoader } from 'react-spinners';
 
 interface IsPrivateRoutes {
     isPrivate?: boolean;
-    path: string; 
+    path: string;
     exact?: boolean;
     component: React.ComponentType;
 }
 
-const CustomRoutes: React.FC<IsPrivateRoutes> = ({ isPrivate, ...rest}) => {
-    const { loading ,authenticated } = useContext(AuthContext);
+const CustomRoutes: React.FC<IsPrivateRoutes> = ({ isPrivate, ...rest }) => {
+    const { loading, authenticated } = useContext(AuthContext);
 
-    if(loading){
+
+    if (loading) {
         return < BarLoader />
+
     }
 
-     if (isPrivate && !authenticated) {
-         return <Redirect to="/"/>
-     }
+    if (isPrivate  && !authenticated) {
 
-    return <Route {...rest}/>
+        return <Redirect to='/' />
+    }
+
+
+    return <Route {...rest} />
+
 }
 
 
@@ -40,13 +45,16 @@ function Routes() {
 
     return (
         <BrowserRouter>
-            <CustomRoutes  path="/" exact component={Landing} />
-            <CustomRoutes path="/createUser"  component={CreateUser} />
-            <CustomRoutes path="/forgot-passwod" component={PageForgotPassword} />
-            <CustomRoutes isPrivate path="/page-main" component={PageMain} />
-            <CustomRoutes  path="/created-user" component={CreatedUser} />
-            <CustomRoutes  isPrivate path="/create-task" component={CreateTask} />
-            <CustomRoutes  isPrivate path="/seach-tasks" component={SeachTasks} />
+            <Switch>
+                <CustomRoutes exact  path="/" component={Landing} />
+                <CustomRoutes  path="/createUser" component={CreateUser} />
+                <CustomRoutes  path="/forgot-passwod" component={PageForgotPassword} />
+                <CustomRoutes  path="/reset-password" component={ResetPassword} />
+                <CustomRoutes isPrivate path="/page-main" component={PageMain} />
+                <CustomRoutes  path="/created-user" component={CreatedUser} />
+                <CustomRoutes isPrivate path="/create-task" component={CreateTask} />
+                <CustomRoutes isPrivate path="/seach-tasks" component={SeachTasks} />
+            </Switch>
         </BrowserRouter>
     );
 }

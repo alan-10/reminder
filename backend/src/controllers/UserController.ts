@@ -3,6 +3,10 @@ import { Request, Response } from 'express';
 import { getRepository } from 'typeorm';
 import Users from '../model/Users';
 
+import userView from '../views/user_view';
+
+
+
 class UserController {
   async create(request: Request , response: Response ){
 
@@ -19,12 +23,14 @@ class UserController {
 
     await userRepository.save(user);
 
-    return response.json(user);
+    return response.json(userView.render(user));
   }
 
-  index(request: Request , response: Response ){
-    return response.json({ id: request.userId });
-  }
+  // index(request: Request , response: Response ){
+  //   return response.json({ id: request.userId });
+  // }
+
+
 }
 
 export default new UserController;   

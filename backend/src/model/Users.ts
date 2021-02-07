@@ -3,6 +3,7 @@ import { Entity , Column, PrimaryGeneratedColumn, BeforeInsert, BeforeUpdate
 import bcrypt from 'bcryptjs';
 
 import Tasks from './Tasks';
+import TokenOfUser from './TokenOfUsers'
 
 @Entity('users')
 class Users {
@@ -32,6 +33,12 @@ class Users {
   @JoinColumn({ name: 'user_id' })
   task: Tasks[];
 
+
+  @OneToMany(type => TokenOfUser, tokenOfUser => tokenOfUser.user, {
+    cascade: ['remove', 'update']
+  })
+  @JoinColumn({name: 'user_id'})
+  tokenOfUser: TokenOfUser[]
 
 }
 

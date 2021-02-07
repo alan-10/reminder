@@ -6,7 +6,7 @@ import Users from './Users';
 export default class Tasks {
 
   @PrimaryColumn()
-  id: number;
+  id: number; 
 
   @Column()
   description: string;

@@ -1,0 +1,63 @@
+#reset-password{
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: var(--color-page-background-in-more);
+}
+
+.form-reset{
+  width: 100%;
+  margin: 0 3rem 0 3rem;
+  text-align: center;
+  
+}
+
+.form-reset  .input-block {
+  margin-top: 1rem;
+}
+
+.form-reset  .input-block input {
+  height: 5rem;
+  width: 100%;
+  border-radius: 0.8rem;
+  border: 0 solid var(--color-line-in-white);
+  outline: none;
+  padding: 1.6rem;
+}
+
+
+.form-reset  button {
+  width:100%;
+  height: 5rem;
+  margin-top: 1rem;
+  border-radius: 0.8rem;
+  border: 0;
+  background-color: var(--color-button-background);
+  color: white;
+  outline: none;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-reset  button:hover {
+  background-color: var(--color-button-background-hover);
+}
+
+
+@media(min-width:700px) {
+  #reset-password {
+    max-width: 100%;
+  }
+
+  .form-reset {
+    max-width: 530px;
+  }
+}

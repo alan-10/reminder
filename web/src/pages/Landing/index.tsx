@@ -31,16 +31,6 @@ function Landing() {
 
    
 
-  // useEffect(() => {
-  //   const token = localStorage.getItem('token');
-
-  //   if(token){
-  //     api.defaults.headers.Authorization = `Bearer ${JSON.parse(token)}`;
-  //     addStatusAuthenticated(true);
-  //   }
-
-  //   whilleLoading(false);
-  // }, []);
 
   //show erro to client
   const  notify =  () => {
