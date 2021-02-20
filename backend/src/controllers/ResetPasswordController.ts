@@ -22,9 +22,19 @@ class ResetPasswordController {
 
       const tokenOfUser = await  tokenRepository.findOneOrFail({ where: { token}});
 
+      if(tokenOfUser.isValid == false){
+        return response.sendStatus(401);
+      }
+
       const user = await userskRepository.findOneOrFail({where:{ id: tokenOfUser.user_id}})
 
-      console.log(user);
+
+       user.password = password;
+
+       await userskRepository.save(user);
+
+
+      await tokenRepository.update(tokenOfUser.id, {isValid: false});
     } catch (error) {
       console.log(error);
     }

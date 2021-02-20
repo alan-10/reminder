@@ -24,7 +24,7 @@ class ForgotPasswordController {
 
       const id = userExists.id;
 
-      const token = jwt.sign({ id: userExists.id }, 'SECRETE@25', { expiresIn: '30m' });
+      const token = jwt.sign({ id: userExists.id }, 'SECRETE@25', { expiresIn: '1d' });
 
       const data = {
         token,

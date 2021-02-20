@@ -1,10 +1,14 @@
 import React, { useEffect, FormEvent, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useHistory } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import api from '../../services/api';
 import './styles.css';
 
-function ResetPassword(){
 
+toast.configure();
+function ResetPassword(){
+  const history = useHistory();
   const [password,setPassword] = useState('');
 
   const location = useLocation();
@@ -14,10 +18,28 @@ function ResetPassword(){
   
 
   function handdleSubmtReset(e: FormEvent){
+    
+
+    const errroUpdatePasswors = () => {
+      toast.error('Erro gere um novo link', {
+        position: toast.POSITION.TOP_CENTER
+      });
+    }
+
+    const successUpdatePassword = () => {
+      toast.success('Senha alterada, faça o login', {
+        position: toast.POSITION.TOP_CENTER
+      });
+    }
+
     e.preventDefault();
     api.put('/reset-password', {
       password:password,
         token:token  as string
+      }).then(() => {
+
+      }).catch(() => {
+        errroUpdatePasswors();
       })
   }
 
